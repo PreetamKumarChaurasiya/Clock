@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Sean Thames">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="60">
+    <style type="text/css">
+        * {
+            background-color: #212121;
+            color: #e9e9e9;
+            margin: 0;
+            padding: 0;
+        }
+        div#container {
+            height: 480px;
+            width: 800px;
+            overflow: hidden;
+        }
+        div#clock {
+            font-size: 100px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            width: 500px;
+            float: right;
+            text-align: right;
+        }
+    </style>
+    <script>
+        function setTime() {
+            var time = new Date();
+            var hours = ("0" + time.getHours()).slice(-2);
+            var minutes = ("0" + time.getMinutes()).slice(-2);
+            var seconds = ("0" + time.getSeconds()).slice(-2);
+            
+            var clock = document.getElementById("clock");
+            clock.innerHTML = hours + ":" + minutes + ":" + seconds;
+        }
+    </script>
+</head>
+<body>
+    <div id="container">
+        <div id="clock">
+            00:00:00
+        </div>
+    </div>
+    <script>
+        var time_interval = setInterval(setTime, 250);
+    </script>
+</body>
